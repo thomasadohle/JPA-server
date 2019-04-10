@@ -30,6 +30,10 @@ public class CourseService {
 	@Autowired
 	UserRepository userRepository;
 	
+	@GetMapping("/api/courses/all")
+	public List<Course> getAllCourses(){
+		return (List<Course>) courseRepository.findAll();
+	}
 
 	@PostMapping("/api/courses")
 	public Course createCourse(@RequestBody Course course,
