@@ -40,6 +40,13 @@ public class WidgetService {
 		return widgets;
 	}
 	
+	@GetMapping("/api/widget")
+	public List<Widget> getAllWidgets (){
+		List<Widget> widgets = (List<Widget>) widgetRepository.findAll();
+		System.out.println("getAllWidgets called");
+		return widgets;
+	}
+	
 	@PostMapping
 	("/api/topic/{tid}/widget")
 	public Widget createWidget(@RequestBody Widget wid,
