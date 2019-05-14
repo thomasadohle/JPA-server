@@ -60,6 +60,13 @@ public class TopicService {
 		return topicsForLesson;
 	}
 	
+	@GetMapping("/api/topics")
+	public List<Topic> findEveryTopic (){
+		List<Topic> topics = (List<Topic>) topicRepository.findAll();
+		System.out.println("findEveryTopic called");
+		return topics;
+	}
+	
 	@GetMapping("/api/topics/{tid}")
 	public Topic findTopicById(@PathVariable(value="tid")  int topicId, HttpSession session) {
 		return topicRepository.findById(topicId).get();
