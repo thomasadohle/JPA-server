@@ -61,6 +61,12 @@ public class LessonService {
 		return lessons;
 	}
 	
+	@GetMapping("api/lessons")
+	public List<Lesson> findEveryLesson(){
+		List<Lesson> lessons = (List<Lesson>) lessonRepository.findAll();
+		return lessons;
+	}
+	
 	@GetMapping("/api/lessons/{lid}")
 	public Lesson findLessonById(@PathVariable(value="lid")  int id, HttpSession session) {
 		return lessonRepository.findById(id).get();

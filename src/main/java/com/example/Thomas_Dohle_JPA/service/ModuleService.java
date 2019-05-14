@@ -55,6 +55,12 @@ public class ModuleService {
 		return modules;
 	}
 	
+	@GetMapping("api/modules")
+	public List<Module> findEveryModule(){
+		List<Module> modules = (List<Module>) moduleRepository.findAll();
+		return modules;
+	}
+	
 	@GetMapping("/api/modules/{mid}")
 	public Module findModuleById(@PathVariable(value="mid")  int id, HttpSession session) {
 		return moduleRepository.findById(id).get();
